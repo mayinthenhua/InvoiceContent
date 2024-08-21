@@ -78,12 +78,12 @@
         .left-header {
             text-align: left;
             vertical-align: middle;
-            padding:0px;
+            padding:10px 0px 10px 0px;
         }
         .right-header {
             text-align: right;
             vertical-align: middle;
-            padding:0px;
+            padding:10px 0px 10px 0px;
         }
         .company-info {
             text-align: center;
@@ -826,18 +826,19 @@
         <p contenteditable="true" id="currentDate"></p>
     </div>
 -->
+
     <div class="left-header">
         <div style="display: flex;">
-            <p style="padding: 0px; margin: 0px;;"> <strong>Tên khách hàng: </strong></p>
-            <p style="padding: 0px; margin: 0px;"><strong id="CustomerName"  style="margin-left: 2px;"></strong></p>
+            <p style="padding: 0px; margin: 0px;"> <strong>Tên khách hàng: </strong></p>
+            <p style="padding: 0px; margin: 0px;"><strong id="CustomerName"></strong></p>
         </div>
         <div style="display: flex;">
-            <p> <strong>Địa chỉ: </strong></p>
-            <p  id="CustomerAddress"  style="margin-left: 2px;"></p>
+            <p style="padding: 0px; margin: 0px;"> <strong>Địa chỉ: </strong></p>
+            <p  id="CustomerAddress"  style="padding: 0px; margin: 0px;"></p>
         </div>
         <div style="display: flex;">
-            <p> <strong>Liên hệ:</strong></p>
-            <p id="CustomerDetail"  style="margin-left: 2px;">Anh Tú - 089.8984.089</p>
+            <p style="padding: 0px; margin: 0px;"> <strong>Liên hệ:</strong></p>
+            <p id="CustomerDetail"  style="padding: 0px; margin: 0px;">Anh Tú - 089.8984.089</p>
         </div>
     </div>
     
@@ -845,13 +846,13 @@
 
         <thead>
             <tr>
-                <th class="text-center"  style="width: 3%;">STT</th>
-                <th class="text-center" style="width: 40%;">Tên sản phẩm </th>
-                <th class="text-center" style="width: 6%;">Số lượng</th>
-                <th class="text-center" style="width: 15%;">Đơn giá <br>(VNĐ)</th>
+                <th class="text-center"  style="width: 2%;">STT</th>
+                <th class="text-center" style="width: 33%;">Tên sản phẩm </th>
+                <th class="text-center" style="width: 10%;">Số lượng</th>
+                <th class="text-center" style="width: 15%;">Đơn giá</th>
                 
-                <th class="text-center" style="width: 15%;">Thành tiền <br> (VNĐ)</th>
-                <th class="text-center" style="width: 6%;">Thuế suất</th>
+                <th class="text-center" style="width: 15%;">Thành tiền</th>
+                <th class="text-center" style="width: 8%;">VAT</th>
                 <th class="text-center" style="width: 15%;">Tiền thuế</th>
                 
             </tr>
@@ -862,14 +863,14 @@
         </tbody>
     </table>
   
-    <p  id="date-bill" style="margin-right: 20px; text-align: right;"></p>
+    <p  id="date-bill" style="margin:2px 20px; text-align: right;"></p>
     <footer class="footer">
         <div class="left-footer">
-            <p>NGƯỜI NHẬN</p>
-            <p >(ký và ghi rõ họ tên)</p>
+            <p style="margin:0px;">NGƯỜI NHẬN</p>
+            <p style="margin-top:5px;">(ký và ghi rõ họ tên)</p>
         </div>
         <div class="right-footer">
-            <p>NGƯỜI BÁN HÀNG</p>
+            <p  style="margin:0px;">NGƯỜI BÁN HÀNG</p>
         </div>
     </footer>
 </div>
