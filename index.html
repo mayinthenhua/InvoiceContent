@@ -177,7 +177,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   
     <script>
         // modify from https://github.com/mozilla/pdf.js/blob/master/examples/node/pdf2svg.js
@@ -683,7 +682,14 @@
 </head>
 <body>
     <div id="command">
-        <input type="file" id="pdfFileInput" title="chọn hóa đơn" accept="application/pdf">
+        <div>
+            
+            <button  style="background-color: lightblue;" onclick="document.getElementById('pdfFileInput').click()">Chọn hóa đơn</button>
+            
+            <input type="file" id="pdfFileInput"  style="display:none" title="chọn hóa đơn" accept="application/pdf">
+           
+        </div>
+        
         <div class="pagination d-none">
             <label >Trang</label>
             <input type="number" id="currentPage" value="1" min="1" max="10" style="width: 30px; text-align: center;" oninput="goToPage()">
@@ -692,8 +698,9 @@
         <button id="btnOrderDownload">Tải Đơn đặt hàng</button>
         <button id="btnProductDownload">Tải Phiếu giao hàng</button>
     </div>
-   
+    <label id="filename" style="margin-top: 10px; color: blue;height: 10px; text-align: center;display: flex;justify-content: center;"></label>
 <hr/>
+
 <div class="container" id="orderContent">
 
         <header>
@@ -915,6 +922,9 @@
             var tbody1 = $('#xProduct-tbody');
             tbody.empty();
             tbody1.empty();
+            const fileInput = document.getElementById('fileInput');
+            const fileName =  $('#pdfFileInput').val().split('\\').pop();
+            $('#filename').text(fileName||"Chưa chọn file");
             loadingTask.promise.then(function (doc){
                 
                 return pdf_table_extractor(doc,pageNumber);
@@ -923,6 +933,7 @@
                 numPages =result.numPages;
                 $('#numPages').text('/' + numPages);
                 $('#currentPage').attr('max',  numPages);
+                console.log(result);
                 if(result.numPages>1){
                     $('.pagination').removeClass('d-none');
                     $('.pagination').addClass('d-flex');
@@ -1015,6 +1026,7 @@
                                     $('#CustomerAddress').text(customerAddress);
                                 }
                             }
+                            
                             if(cell.includes('STT')){
                                 r+=2;c=-1;
                                 isTable = true;
@@ -1035,7 +1047,7 @@
                                     }
                                     if (merges[r_c].width ===8) {
                                         let split = cell.split(':');
-                                        td_dom.html( split[0]+': '+'<strong>'+split[1]+'</strong>');
+                                        td_dom.html( 'Số tiền viết bằng chữ'+': '+'<strong>'+split[1]+'</strong>');
                                         td_dom.addClass('text-left');
                                     }
                                 }else{
