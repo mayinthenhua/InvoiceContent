@@ -207,7 +207,6 @@
             return [xt, yt];
         };
 
-
         var lastPromise = Promise.resolve(); // will be used to chain promises
         var loadPage = function (pageNum) {
             return doc.getPage(pageNum).then(function (page) {
@@ -793,7 +792,7 @@
         </table>
         <div class="totalOrder">
            
-        <p contenteditable="true">
+        <p contenteditable="false">
         <b>GHI CHÚ</b>
         - Bên bán cung cấp hàng hóa theo chất lượng đúng như quy cách đặt hàng.
         - Phương thức thanh toán : Tiền mặt hoặc chuyển khoản.
