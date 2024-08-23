@@ -733,19 +733,19 @@
                 <td>Đơn vị mua</td>
                 <td><strong>CÔNG TY TNHH SHIRO</strong></td>
                 <td>Đơn vị bán</td>
-                <td><strong id="company-name"></strong></td>
+                <td><strong id="company-name">CÔNG TY TNHH VIỆT ID</strong></td>
             </tr>
             <tr>
                 <td style="width: 14%;">Địa chỉ giao</td>
                 <td style="width: 36%;">Tầng 14, Tòa nhà HM Town, 412 Nguyễn Thị Minh Khai, Phường 05, Quận 3, Thành phố Hồ Chí Minh, Việt Nam.</td>
                 <td style="width: 14%;">Địa chỉ</td>
-                <td id="company-address"></td>
+                <td id="company-address">A2/1A Lê Văn Việt, Khu phố 2, Phường Tăng Nhơn Phú A,Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam.</td>
             </tr>
             <tr>
                 <td>Mã số thuế</td>
                 <td>0 3 1 5 5 3 6 1 4 7</td>
                 <td>Mã số thuế</td>
-                <td id="company-tax"></td>
+                <td id="company-tax">0 3 1 2 1 3 4 7 4 6</td>
             </tr>
             <tr>
                 <td>Người liên hệ</td>
@@ -818,9 +818,18 @@
     <div class="header2">
         
         <div class="left-header">
-            <p> <strong>Đơn vị:</strong> CÔNG TY TNHH VIỆT ID</p>
-            <p><strong>Địa chỉ:</strong> A2/1A Lê Văn Việt Tp. Thủ Đức</p>
-            <p><strong>MST:</strong>  0312134746</p>
+            <div style="display: flex;">
+                <p style="padding: 0px; margin: 1px;"> <strong>Đơn vị: </strong></p>
+                <p style="padding: 0px; margin: 1px;"><strong>CÔNG TY TNHH VIỆT ID</strong></p>
+            </div>
+            <div style="display: flex;">
+                <p style="padding: 0px; margin: 1px;"> <strong>Địa chỉ: </strong></p>
+                <p  id="company-address-short" style="padding: 0px; margin: 1px;"> A2/1A Lê Văn Việt, Tp. Thủ Đức</p>
+            </div>
+            <div style="display: flex;">
+                <p style="padding: 0px; margin: 1px;"> <strong>MST: </strong></p>
+                <p  id="company-address-short" style="padding: 0px; margin: 1px;">0312134746</p>
+            </div>
         </div>
         <div class="right-header">
             <h1 style="text-align: center; margin-right: 100px;">PHIẾU GIAO HÀNG</h1>
@@ -832,19 +841,18 @@
         <p contenteditable="true" id="currentDate"></p>
     </div>
 -->
-
     <div class="left-header">
         <div style="display: flex;">
-            <p style="padding: 0px; margin: 0px;"> <strong>Tên khách hàng: </strong></p>
-            <p style="padding: 0px; margin: 0px;"><strong id="CustomerName"></strong></p>
+            <p style="padding: 0px; margin: 1px;"> <strong>Tên khách hàng: </strong></p>
+            <p style="padding: 0px; margin: 1px;"><strong id="CustomerName"></strong></p>
         </div>
         <div style="display: flex;">
-            <p style="padding: 0px; margin: 0px;"> <strong>Địa chỉ: </strong></p>
-            <p  id="CustomerAddress"  style="padding: 0px; margin: 0px;"></p>
+            <p style="padding: 0px; margin: 1px;"> <strong>Địa chỉ: </strong></p>
+            <p  id="CustomerAddress"  style="padding: 0px; margin: 1px;"></p>
         </div>
         <div style="display: flex;">
-            <p style="padding: 0px; margin: 0px;"> <strong>Liên hệ:</strong></p>
-            <p id="CustomerDetail"  style="padding: 0px; margin: 0px;">Anh Tú - 089.8984.089</p>
+            <p style="padding: 0px; margin: 1px;"> <strong>Liên hệ:</strong></p>
+            <p id="CustomerDetail"  style="padding: 0px; margin: 1px;">Anh Tú - 089.8984.089</p>
         </div>
     </div>
     
@@ -980,6 +988,13 @@
                                 $('#company-name').text(lines[0]);
                                 $('#company-address').text(addr);
                                 $('#company-tax').text(taxCode);
+                                if(addr.includes('Thủ Đức')){
+                                    let addr_short = 'A2/1A Lê Văn Việt, TP. Thủ Đức, HCM'
+                                    $('#company-address-short').text(addr_short);
+                                }else{
+                                    let addr_short ='A2/1A Lê Văn Việt, quận 9,TP HCM'
+                                    $('#company-address-short').text(addr_short);
+                                }
                             }
                             if(cell.includes('Ngày') && cell.includes('tháng')&& cell.includes('năm')){
                                let lines = cell.split('\n');
