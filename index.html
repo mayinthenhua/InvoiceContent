@@ -78,12 +78,12 @@
         .left-header {
             text-align: left;
             vertical-align: middle;
-            padding:10px 0px 10px 0px;
+            padding:0px 0px 3px 0px;
         }
         .right-header {
             text-align: right;
             vertical-align: middle;
-            padding:10px 0px 10px 0px;
+            padding:0px 0px 10px 0px;
         }
         .company-info {
             text-align: center;
@@ -956,6 +956,7 @@
                     var merges = page_tables.merges;
                     let isTable = false;
                     let isTotal = false;
+                    let rowcnt=0;
                     for (var r = 0; r < tables.length; r++) {
                         
                         let tr_dom = $('<tr></tr>');
@@ -1060,6 +1061,7 @@
                                     if (merges[r_c].width ===6) {
                                         td_dom.text(cell);
                                         td_dom.addClass('text-right');
+                                        td_dom.addClass('row-sub');
                                     }
                                     if (merges[r_c].width ===2) {
                                         td_dom.html('<strong>'+cell+'</strong>');
@@ -1092,11 +1094,15 @@
                             tbody.append(tr_dom);
                             
                             tbody1.append(clonetr);
-                           
+                            rowcnt++;
+                            
                         }
                         
                         
                     }
+                    let xProduct = document.getElementById("xProduct-table");
+                    xProduct.deleteRow(rowcnt-1);
+                    xProduct.deleteRow(rowcnt-2);
                     
                 };
             });
