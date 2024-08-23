@@ -1006,7 +1006,17 @@
                                     date.day = n[0];
                                     date.month = n[1];
                                     date.year = n[2];
-                                    $('#order-date').text(`${date.day}/${date.month}/${date.year}`);
+                                    let dateString = date.year+'-'+date.month+'-'+date.day;
+                                    let dateObject = new Date(dateString);
+
+                                    let ran = Math.floor(Math.random() * 10) + 1;
+                                    dateObject.setDate(dateObject.getDate() - ran);
+
+                                    var newyear = dateObject.getFullYear();
+                                    var newmonth = String(dateObject.getMonth() + 1).padStart(2, '0'); // Tháng 0-indexed, cần cộng 1
+                                    var newday = String(dateObject.getDate()).padStart(2, '0');
+
+                                    $('#order-date').text(`${newday}/${newmonth}/${newyear}`);
                                     $('#date-bill').text(`Ngày ${date.day} tháng ${date.month} năm ${date.year}`);
                                }
                             }
