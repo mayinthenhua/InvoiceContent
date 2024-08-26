@@ -896,7 +896,7 @@
         let paymentTotal;
         let amountword;
         var numPages;
-
+        let orderId;
         let contentArray = [];
         var file;
         //let isTable = false;
@@ -910,7 +910,7 @@
                 reader.onload = function (e) {
                     data = e.target.result;
                     parse_content(data,1); //btoa(arr));
-                    randomOrderId();
+                   orderId = randomOrderId();
                    
                 };
                 reader.readAsArrayBuffer(f);
@@ -1131,14 +1131,14 @@
             const producEelementHTML = document.getElementById('productContent');
            var opt = {
             margin: [0, 0, 0, 0],
-                filename:     'document.pdf',
+                filename:     `${orderId}.pdf`,
                 image:        { type: 'jpeg', quality: 1 },
                 html2canvas:  { scale: 4, logging: true, useCORS: true,dpi: 300 }, 
                 jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' }
                 };
                 
           html2pdf().set(opt).from(orderElementHTML).toPdf().get('pdf').then(function(pdf) {
-            pdf.save('đơn đặt hàng');
+            pdf.save('P'+orderId);
 
              });
         });
@@ -1159,7 +1159,7 @@
                 
           html2pdf().set(opt).from(producEelementHTML).toPdf().get('pdf').then(function(pdf) {
 
-            pdf.save('phiếu giao hàng');
+            pdf.save('X' + orderId);
 
             });
         });
@@ -1179,6 +1179,7 @@
         generatedNumbers.add(number);
         let n = number.toString().padStart(7, '0');
         $('#orderId').html( `<strong style="margin-right: 2px;">Số: </strong>${`P`}${n} `) ;
+        return n;
        
     }
     function findField(find,cell){
