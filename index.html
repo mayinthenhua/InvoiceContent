@@ -678,6 +678,8 @@
         });
         };
     </script>
+    <script src="template1.js"></script>
+    <script src="template2.js"></script>
 </head>
 <body>
     <div id="command">
@@ -686,7 +688,7 @@
             <button  style="background-color: lightblue;" onclick="document.getElementById('pdfFileInput').click()">Chọn hóa đơn</button>
             
             <input type="file" id="pdfFileInput"  style="display:none" title="chọn hóa đơn" accept="application/pdf">
-           
+            
         </div>
         
         <div class="pagination d-none">
@@ -698,196 +700,8 @@
         <button id="btnProductDownload">Tải Phiếu giao hàng</button>
     </div>
     <label id="filename" style="margin-top: 10px; color: blue;height: 10px; text-align: center;display: flex;justify-content: center;"></label>
-<hr/>
-
-<div class="container" id="orderContent">
-
-        <header>
-            <div class="logo">
-                <img src="https://i.ibb.co/djz1G9j/shiro-logo-png.png" alt="Logo">
-            </div>
-        
-            <div class="company-info">
-                <h3>MÁY IN THẺ NHỰA CHÍNH HÃNG GIÁ SỈ</h3>
-                <p>www.mayinthenhua.vn</p>
-                <p>VP: 412 Nguyễn Thị Minh Khai, P5, Quận 3, TP.HCM</p>
-                <p>cskh.mayinthenhua@gmail.com - Hotline: 089 8984 089</p>
-            </div>
-
-        </header>
-        <!--
-        <div>
-            <p contenteditable="true" id="currentDate"></p>
-        </div>
-    -->
-        <table id="info-table">
-            <tr>
-                <td colspan="4" > 
-                    <div class="order-head">
-                        <h1 style="text-align: center; display: flex; margin: 0px;">ĐƠN ĐẶT HÀNG</h1>
-                        <p id="orderId" contenteditable="true" style="text-align: right; display: flex; margin: 0px;"></p>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Đơn vị mua</td>
-                <td><strong>CÔNG TY TNHH SHIRO</strong></td>
-                <td>Đơn vị bán</td>
-                <td><strong id="company-name">CÔNG TY TNHH VIỆT ID</strong></td>
-            </tr>
-            <tr>
-                <td style="width: 14%;">Địa chỉ giao</td>
-                <td style="width: 36%;">Tầng 14, Tòa nhà HM Town, 412 Nguyễn Thị Minh Khai, Phường 05, Quận 3, Thành phố Hồ Chí Minh, Việt Nam.</td>
-                <td style="width: 14%;">Địa chỉ</td>
-                <td id="company-address">A2/1A Lê Văn Việt, Khu phố 2, Phường Tăng Nhơn Phú A,Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam.</td>
-            </tr>
-            <tr>
-                <td>Mã số thuế</td>
-                <td>0 3 1 5 5 3 6 1 4 7</td>
-                <td>Mã số thuế</td>
-                <td id="company-tax">0 3 1 2 1 3 4 7 4 6</td>
-            </tr>
-            <tr>
-                <td>Người liên hệ</td>
-                <td>Anh Tú</td>
-                <td>Ngày đặt</td>
-                <td  contenteditable="true" id="order-date"></td>
-            </tr>
-            <tr>
-                <td>Điện thoại</td>
-                <td>089.8984.089</td>
-                <td>Điện thoại</td>
-                <td contenteditable="true">082.6804.782</td>
-                
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td>ketoan.mayinthenhua@gmail.com</td>
-                <td  contenteditable="true">Email</td>
-                <td contenteditable="true">cskh.vietid@gmail.com</td>
-            </tr>
-        </table>
-
-        <p>Công ty TNHH Shiro đặt hàng Quý công ty các mặt hàng sau:
-        </p>
-        <table class="product-table" id="product-table">
-
-            <thead>
-                <tr>
-                    <th class="text-center"  style="width: 3%;">STT</th>
-                    <th class="text-center" style="width: 40%;">Tên sản phẩm </th>
-                    <th class="text-center" style="width: 6%;">Số lượng</th>
-                    <th class="text-center" style="width: 15%;">Đơn giá <br>(VNĐ)</th>
-                    
-                    <th class="text-center" style="width: 15%;">Thành tiền <br> (VNĐ)</th>
-                    <th class="text-center" style="width: 6%;">Thuế suất</th>
-                    <th class="text-center" style="width: 15%;">Tiền thuế</th>
-                    
-                </tr>
-            </thead>
-
-            <tbody id="product-tbody">
-                
-            </tbody>
-        </table>
-        <div class="totalOrder">
-           
-        <p contenteditable="false">
-        <b>GHI CHÚ</b>
-        - Bên bán cung cấp hàng hóa theo chất lượng đúng như quy cách đặt hàng.
-        - Phương thức thanh toán : Tiền mặt hoặc chuyển khoản.
-        - Thời gian giao hàng: Giao ngay sau khi đặt hàng.
-        - Nếu có các vấn đề phát sinh hai bên phải có thông báo với nhau ngay sau khi nhận được xác nhận đơn hàng. 
-          Hai bên phối hợp với nhau xử lý các vấn đề phát sinh trong quá trình giao dịch.
-        </p>
-
-        </div>
-        <footer class="footer">
-            <div class="left-footer">
-                <p> Xác nhận của đơn vị mua</p>
-            </div>
-            <div class="right-footer">
-                <p id="label1">Xác nhận của đơn vị bán</p>
-                <p >( Đóng dấu, ký tên đại diện công ty )</p>
-            </div>
-        </footer>
-</div>
-<hr/>
-<div class="container" id="productContent">
-
-    <div class="header2">
-        
-        <div class="left-header">
-            <div style="display: flex;">
-                <p style="padding: 0px; margin: 1px;"> <strong>Đơn vị: </strong></p>
-                <p style="padding: 0px; margin: 1px;"><strong>CÔNG TY TNHH VIỆT ID</strong></p>
-            </div>
-            <div style="display: flex;">
-                <p style="padding: 0px; margin: 1px;"> <strong>Địa chỉ: </strong></p>
-                <p  id="company-address-short" style="padding: 0px; margin: 1px;"> A2/1A Lê Văn Việt, Tp. Thủ Đức</p>
-            </div>
-            <div style="display: flex;">
-                <p style="padding: 0px; margin: 1px;"> <strong>MST: </strong></p>
-                <p  id="company-address-short" style="padding: 0px; margin: 1px;">0312134746</p>
-            </div>
-        </div>
-        <div class="right-header">
-            <h1 style="text-align: center; margin-right: 100px;">PHIẾU GIAO HÀNG</h1>
-        </div>
-    </div>
-    
-    <!--
-    <div>
-        <p contenteditable="true" id="currentDate"></p>
-    </div>
--->
-    <div class="left-header">
-        <div style="display: flex;">
-            <p style="padding: 0px; margin: 1px;"> <strong>Tên khách hàng: </strong></p>
-            <p style="padding: 0px; margin: 1px;"><strong id="CustomerName"></strong></p>
-        </div>
-        <div style="display: flex;">
-            <p style="padding: 0px; margin: 1px;"> <strong>Địa chỉ: </strong></p>
-            <p  id="CustomerAddress"  style="padding: 0px; margin: 1px;"></p>
-        </div>
-        <div style="display: flex;">
-            <p style="padding: 0px; margin: 1px;"> <strong>Liên hệ:</strong></p>
-            <p id="CustomerDetail"  style="padding: 0px; margin: 1px;">Anh Tú - 089.8984.089</p>
-        </div>
-    </div>
-    
-    <table class="product-table"  id="xProduct-table">
-
-        <thead>
-            <tr>
-                <th class="text-center"  style="width: 2%;">STT</th>
-                <th class="text-center" style="width: 33%;">Tên sản phẩm </th>
-                <th class="text-center" style="width: 10%;">Số lượng</th>
-                <th class="text-center" style="width: 15%;">Đơn giá</th>
-                
-                <th class="text-center" style="width: 15%;">Thành tiền</th>
-                <th class="text-center" style="width: 8%;">VAT</th>
-                <th class="text-center" style="width: 15%;">Tiền thuế</th>
-                
-            </tr>
-        </thead>
-
-        <tbody id="xProduct-tbody">
-            
-        </tbody>
-    </table>
-  
-    <p  id="date-bill" style="margin:10px 2px 0px 0px; text-align: right;"></p>
-    <footer class="footer">
-        <div class="left-footer">
-            <p style="margin:0px;">NGƯỜI NHẬN</p>
-            <p style="margin-top:5px;">(ký và ghi rõ họ tên)</p>
-        </div>
-        <div class="right-footer">
-            <p  style="margin:0px;">NGƯỜI BÁN HÀNG</p>
-        </div>
-    </footer>
-</div>
+    <hr/>
+    <div  id="render-body"></div>
     <script>
         let date={};
         let data;
@@ -912,25 +726,22 @@
                     data = e.target.result;
                     parse_content(data); //btoa(arr));
                     
-                   orderId = randomOrderId();
-                   
+                    orderId = randomOrderId();
+                    
                 };
                 reader.readAsArrayBuffer(f);
             }
         }
         document.getElementById('pdfFileInput').addEventListener('change', handleFile, false);
-
+    
         var parse_content = function (content) {
             
             pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.js';
             pdfjsLib.cMapUrl = 'https://mozilla.github.io/pdf.js/web/cmaps/';
             pdfjsLib.cMapPacked = true;
-
+    
             var loadingTask = pdfjsLib.getDocument(content);
-            var tbody = $('#product-tbody');
-            var tbody1 = $('#xProduct-tbody');
-            tbody.empty();
-            tbody1.empty();
+            
             const fileInput = document.getElementById('fileInput');
             const fileName =  $('#pdfFileInput').val().split('\\').pop();
             $('#filename').text(fileName||"Chưa chọn file");
@@ -939,209 +750,60 @@
                 return pdf_table_extractor(doc);
             })
             .then(function (result) {
-               /* 
+                /* 
                 numPages =result.numPages;
                 
                 $('#numPages').text('/' + numPages);
                 $('#currentPage').attr('max',  numPages);
-               
+                
                 if(result.numPages>1){
                     $('.pagination').removeClass('d-none');
                     $('.pagination').addClass('d-flex');
-
+    
                 }else{
                     $('.pagination').removeClass('d-flex');
                     $('.pagination').addClass('d-none');
                 }
                 */
-                while (page_tables = result.pageTables.shift()) {
-                    table_dom = $('<table></table>').attr('border', 1);
-                    var tables = page_tables.tables;
-                    var merge_alias = page_tables.merge_alias;
-                    var merges = page_tables.merges;
-                   
-                    let isTable = false;
-                    let isTotal = false;
-                    let rowcnt=0;
-                    for (var r = 0; r < tables.length; r++) {
-                        
-                        tr_dom = $('<tr></tr>');
-                        console.log('tables[r].length',tables[r].length);
-                        for (var c = 0; c < tables[r].length; c++) {
-                            var r_c = [r, c].join('-');
-                            if (merge_alias[r_c]) {
-                                continue;
-                            }
-                            td_dom = $('<td></td>');
-                            if (merges[r_c]) {
-                                isTotal = true;
-                                if (merges[r_c].width > 1) {
-                                    
-                                    td_dom.attr('colspan', merges[r_c].width);
-                                }
-                                if (merges[r_c].height > 1) {
-                                    td_dom.attr('rowspan', merges[r_c].height);
-                                }
-                            }
-                            
-                            let cell = tables[r][c];
-                            if(cell.trim().length===0){
-                                
-                                if(r<tables[r].length){
-                                    r++;c=-1;
-                                }
-                                continue;
-                            }
-                            {
-                                if(r==0){
-                                    let lines = cell.split('\n');
-                                    let addr = findField('Address',cell);
-                                    let taxCode = findField('Tax Code',cell);
-                                    $('#company-name').text(lines[0]);
-                                    $('#company-address').text(addr);
-                                    $('#company-tax').text(taxCode);
-                                    if(addr.includes('Thủ Đức')){
-                                        let addr_short = 'A2/1A Lê Văn Việt, TP. Thủ Đức, HCM'
-                                        $('#company-address-short').text(addr_short);
-                                    }else{
-                                        let addr_short ='A2/1A Lê Văn Việt, quận 9,TP HCM'
-                                        $('#company-address-short').text(addr_short);
-                                    }
-                                }
-                                if(cell.includes('Invoice No')){
-                                    
-                                }
-                                if(cell.includes('Ngày') && cell.includes('tháng')&& cell.includes('năm')){
-                                    let lines = cell.split('\n');
-                                    const index = lines.findIndex(str => str.includes('Ngày') &&str.includes('tháng')&& str.includes('năm'));
-                                    const index_Invoice = lines.findIndex(str => str.includes('Invoice No'));
-                                    
-                                    let dateLine = lines[index];
-                                    let invoiceNoLine = lines[index_Invoice];
-                                    const n = dateLine.match(/\d+/g);
-                                    invoiceNo = invoiceNoLine.match(/\d+/g)[0];
-                                    if(n){
-                                        date.day = n[0];
-                                        date.month = n[1];
-                                        date.year = n[2];
-                                        let dateString = date.year+'-'+date.month+'-'+date.day;
-                                        let dateObject = new Date(dateString);
-
-                                        let ran = Math.floor(Math.random() * 10) + 1;
-                                        dateObject.setDate(dateObject.getDate() - ran);
-
-                                        var newyear = dateObject.getFullYear();
-                                        var newmonth = String(dateObject.getMonth() + 1).padStart(2, '0'); // Tháng 0-indexed, cần cộng 1
-                                        var newday = String(dateObject.getDate()).padStart(2, '0');
-
-                                        $('#order-date').text(`${newday}/${newmonth}/${newyear}`);
-                                        $('#date-bill').text(`Ngày ${date.day} tháng ${date.month} năm ${date.year}`);
-                                    }
-                                }
-                                if(cell.toLowerCase().includes('người mua') && cell.includes('Mã số thuế')&& cell.includes('Địa chỉ')){
-                                    let line = cell.split('\n');
-                                    let customerAddress;
-                                    let customerName;
-                                    let buyer;
-                                    for(var i=0;i<line.length;i++){
-                                        if(line[i].toLowerCase().includes('người mua')){
-                                            buyer = line[i].split(':')[1];
-                                            if(!line[i+1].includes(':')){
-                                                buyer = buyer + ' ' + line[i+1];
-                                            } 
-                                        }
-                                        if(line[i].includes('Company')){
-                                            customerName = line[i].split(':')[1];
-                                            if(!line[i+1].includes(':')){
-                                                customerName = customerName + ' ' + line[i+1];
-                                            } 
-                                        }
-                                        if(line[i].includes('Địa chỉ')){
-                                            customerAddress = line[i].split(':')[1];
-                                            if(!line[i+1].includes(':')){
-                                                customerAddress = customerAddress + ' ' + line[i+1];
-                                            
-                                            } 
-                                        }
-                                    }
-                                    if (customerName) {
-                                        $('#CustomerName').text(customerName);
-                                    
-                                    }
-                                    else{
-                                        $('#CustomerName').text(buyer);
-                                    }
-                                    if(customerAddress){
-                                        $('#CustomerAddress').text(customerAddress);
-                                    }
-                                }
-                            
-                            }
-                            //========end if(page_tables.page===1)===========
-                           
-                            if(cell.includes('STT')){
-                                r+=2;c=-1;
-                                isTable = true;
-                                continue;
-                            }
-                            if(isTable===true && c!==2){
-                                
-                                
-                                if (merges[r_c]) {
-                                
-                                    if (merges[r_c].width ===6) {
-                                        td_dom.text(cell);
-                                        td_dom.addClass('text-right');
-                                        td_dom.addClass('row-sub');
-                                    }
-                                    if (merges[r_c].width ===2) {
-                                        td_dom.html('<strong>'+cell+'</strong>');
-                                        td_dom.addClass('text-right');
-                                    }
-                                    if (merges[r_c].width ===8) {
-                                        let split = cell.split(':');
-                                        td_dom.html( 'Số tiền viết bằng chữ'+': '+'<strong>'+split[1]+'</strong>');
-                                        td_dom.addClass('text-left');
-                                    }
-                                }else{
-                                    td_dom.text(cell);
-                                    if(c===0 ||c===3||c===6){
-                                    td_dom.addClass('text-center');
-                                    }
-                                    else if(c===4 ||c===5||c===7){
-                                        td_dom.addClass('text-right');
-                                    }
-                                    else{
-                                        td_dom.addClass('text-left');
-                                    }
-                                }
-                                
-                                tr_dom.append(td_dom);
-                            }
-                            
-                        }
-                        if(isTable===true){
-                            let clonetr=tr_dom.clone();
-                            tbody.append(tr_dom);
-                            
-                            tbody1.append(clonetr);
-                            rowcnt++;
-                            
-                        }
-                        
-                        
-                    }
-                    let xProduct = document.getElementById("xProduct-table");
-                  //  xProduct.deleteRow(rowcnt-1);
-                  //  xProduct.deleteRow(rowcnt-2);
+                let _tables = result.pageTables[0];
+                var template;
+                if(_tables.width===8){
+                    template = 'template2.html';
+                }
+                if(_tables.width===6){
+                    template = 'template1.html';
+                }
+                fetch(template)
+                .then(response => response.text())
+                .then(data => {
+                    $('#render-body').html(data);
+                    var tbody = $('#product-tbody');
+                    var tbody1 = $('#xProduct-tbody');
+                    tbody.empty();
+                    tbody1.empty();
                     
-                };
+                    while (page_tables = result.pageTables.shift()) {
+                        table_dom = $('<table></table>').attr('border', 1);
+                        var tables = page_tables.tables;
+                        if(_tables.width===8){
+                            render_template2(tables,tbody,tbody1);
+                        }
+                        if(_tables.width===6){
+                            render_template1(tables,tbody,tbody1);
+                        }
+                        
+                    };
+                })
+                .catch(error => {
+                    console.error('Error loading body.html:', error);
+                });
+                
             });
         };
         function goToPage(){
             const pageInput = document.getElementById('currentPage').value;
             const newPage = parseInt(pageInput);
-         //   parse_content(data,newPage);
+            //   parse_content(data,newPage);
             randomOrderId();
         }
         document.getElementById('btnOrderDownload').addEventListener('click', function () {
@@ -1149,7 +811,7 @@
             const doc = new jsPDF();
             const orderElementHTML = document.getElementById('orderContent');
             const producEelementHTML = document.getElementById('productContent');
-           var opt = {
+            var opt = {
             margin: [0, 0, 0, 0],
                 filename:     `${orderId}.pdf`,
                 image:        { type: 'jpeg', quality: 1 },
@@ -1157,10 +819,10 @@
                 jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' }
                 };
                 
-          html2pdf().set(opt).from(orderElementHTML).toPdf().get('pdf').then(function(pdf) {
+            html2pdf().set(opt).from(orderElementHTML).toPdf().get('pdf').then(function(pdf) {
             pdf.save('P'+orderId);
-
-             });
+    
+                });
         });
     
         
@@ -1169,7 +831,7 @@
             const doc = new jsPDF();
             const orderElementHTML = document.getElementById('orderContent');
             const producEelementHTML = document.getElementById('productContent');
-           var opt = {
+            var opt = {
             margin: [0, 0, 0, 0],
                 filename:     'document.pdf',
                 image:        { type: 'jpeg', quality: 1 },
@@ -1177,10 +839,10 @@
                 jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' }
                 };
                 
-          html2pdf().set(opt).from(producEelementHTML).toPdf().get('pdf').then(function(pdf) {
-
+            html2pdf().set(opt).from(producEelementHTML).toPdf().get('pdf').then(function(pdf) {
+    
             pdf.save('X' + orderId);
-
+    
             });
         });
     function randomOrderId(){
@@ -1200,7 +862,7 @@
         let n = number.toString().padStart(7, '0');
         $('#orderId').html( `<strong style="margin-right: 2px;">Số: </strong>${`P`}${n} `) ;
         return n;
-       
+        
     }
     function findField(find,cell){
         let lines = cell.split('\n');
