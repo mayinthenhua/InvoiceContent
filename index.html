@@ -725,9 +725,6 @@
                 reader.onload = function (e) {
                     data = e.target.result;
                     parse_content(data); //btoa(arr));
-                    
-                    orderId = randomOrderId();
-                    
                 };
                 reader.readAsArrayBuffer(f);
             }
@@ -781,7 +778,7 @@
                     var tbody1 = $('#xProduct-tbody');
                     tbody.empty();
                     tbody1.empty();
-                    
+                    orderId = randomOrderId();
                     while (page_tables = result.pageTables.shift()) {
                         table_dom = $('<table></table>').attr('border', 1);
                         var tables = page_tables.tables;
