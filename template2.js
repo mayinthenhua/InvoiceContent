@@ -9,7 +9,6 @@ function render_template2(tables,tbody,tbody1){
     for (var r = 0; r < tables.length; r++) {
         
         tr_dom = $('<tr></tr>');
-        console.log('tables[r].length',tables[r].length);
         for (var c = 0; c < tables[r].length; c++) {
             var r_c = [r, c].join('-');
             if (merge_alias[r_c]) {

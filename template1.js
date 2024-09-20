@@ -1,14 +1,12 @@
 function render_template1(tables,tbody,tbody1){
     var merge_alias = page_tables.merge_alias;
     var merges = page_tables.merges;
-    
     let isTable = false;
     let isTotal = false;
     let rowcnt=0;
     for (var r = 0; r < tables.length; r++) {
         
         tr_dom = $('<tr></tr>');
-        console.log('tables[r].length',tables[r].length);
         for (var c = 0; c < tables[r].length; c++) {
             var r_c = [r, c].join('-');
             if (merge_alias[r_c]) {
@@ -61,7 +59,12 @@ function render_template1(tables,tbody,tbody1){
                     let dateLine = lines[index];
                     let invoiceNoLine = lines[index_Invoice];
                     const n = dateLine.match(/\d+/g);
-                    invoiceNo = invoiceNoLine.match(/\d+/g)[0];
+                    try {
+                        invoiceNo = invoiceNoLine.match(/\d+/g)[0];
+                    } catch (error) {
+                        invoiceNo = lines[lines.length-1].replace('"','');
+                    }
+                    
                     if(n){
                         date.day = n[0];
                         date.month = n[1];
