@@ -88,11 +88,17 @@
         .company-info {
             text-align: center;
         }
-
-        .company-info p {
+        .company-info p,.company-info-3 p {
             margin-bottom: -10px;
             word-wrap: break-word;
         }
+        .company-info h3,.company-info-3 h3 {
+            margin-bottom: -10px;
+        }
+        .company-info-3 {
+            text-align: left;
+        }
+         
 
         #currentDate {
             margin-top: 30px;
@@ -680,6 +686,7 @@
     </script>
     <script src="template1.js"></script>
     <script src="template2.js"></script>
+    <script src="template3.js"></script>
 </head>
 <body>
     <div id="command">
@@ -765,8 +772,13 @@
                 */
                 let _tables = result.pageTables[0];
                 var template;
+                
                 if(_tables.width===8){
-                    template = 'template2.html';
+                    if(_tables.tables[2][0].includes('THẠNH MINH')){
+                        
+                        template = 'template3.html';
+                    }else
+                        template = 'template2.html';
                 }
                 if(_tables.width===6){
                     template = 'template1.html';
@@ -783,10 +795,13 @@
                     while (page_tables = result.pageTables.shift()) {
                         table_dom = $('<table></table>').attr('border', 1);
                         var tables = page_tables.tables;
-                        if(_tables.width===8){
+                        if(template === 'template3.html'){
+                            render_template3(tables,tbody,tbody1);
+                        }
+                        if(template === 'template2.html'){
                             render_template2(tables,tbody,tbody1);
                         }
-                        if(_tables.width===6){
+                        if(template == 'template1.html'){
                             render_template1(tables,tbody,tbody1);
                         }
                         

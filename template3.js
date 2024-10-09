@@ -1,4 +1,5 @@
-function render_template2(tables,tbody,tbody1){
+function render_template3(tables,tbody,tbody1){
+
     var merge_alias = page_tables.merge_alias;
     var merges = page_tables.merges;
     
