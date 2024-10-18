@@ -1,0 +1,191 @@
+
+
+<div class="container" id="orderContent">
+
+    <header>
+        <div class="logo">
+            <img src="https://i.ibb.co/djz1G9j/shiro-logo-png.png" alt="Logo">
+        </div>
+    
+        <div class="company-info">
+            <h3>MÁY IN THẺ NHỰA CHÍNH HÃNG GIÁ SỈ</h3>
+            <p>www.mayinthenhua.vn</p>
+            <p>VP: 412 Nguyễn Thị Minh Khai, P5, Quận 3, TP.HCM</p>
+            <p>cskh.mayinthenhua@gmail.com - Hotline: 089 8984 089</p>
+        </div>
+
+    </header>
+    <!--
+    <div>
+        <p contenteditable="true" id="currentDate"></p>
+    </div>
+-->
+    <table id="info-table">
+        <tr>
+            <td colspan="4" > 
+                <div class="order-head">
+                    <h1 style="text-align: center; display: flex; margin: 0px;">ĐƠN ĐẶT HÀNG</h1>
+                    <p id="orderId" contenteditable="true" style="text-align: right; display: flex; margin: 0px;"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Đơn vị mua</td>
+            <td><strong>CÔNG TY TNHH SHIRO</strong></td>
+            <td>Đơn vị bán</td>
+            <td><strong id="company-name">CÔNG TY TNHH SẢN XUẤT MẠI DỊCH VỤ THẠNH MINH</strong></td>
+        </tr>
+        <tr>
+            <td style="width: 14%;">Địa chỉ giao</td>
+            <td style="width: 36%;">Tầng 14, Tòa nhà HM Town, 412 Nguyễn Thị Minh Khai, Phường 05, Quận 3, Thành phố Hồ Chí Minh, Việt Nam.</td>
+            <td style="width: 14%;">Địa chỉ</td>
+            <td id="company-address">113 Dương Quảng Hàm, Phường 5, Quận Gò Vấp, Thành phố Hồ Chí Minh.</td>
+        </tr>
+        <tr>
+            <td>Mã số thuế</td>
+            <td>0 3 1 5 5 3 6 1 4 7</td>
+            <td>Mã số thuế</td>
+            <td>0 3 0 4 5 1 9 8 3 0</td>
+        </tr>
+        <tr>
+            <td>Người liên hệ</td>
+            <td>Anh Tú</td>
+            <td>Ngày đặt</td>
+            <td  contenteditable="true" id="order-date"></td>
+        </tr>
+        <tr>
+            <td>Điện thoại</td>
+            <td>089.8984.089</td>
+            <td>Điện thoại</td>
+            <td contenteditable="true">0908163045</td>
+            
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>ketoan.mayinthenhua@gmail.com</td>
+            <td  contenteditable="true">Email</td>
+            <td contenteditable="true"></td>
+        </tr>
+    </table>
+
+    <p>Công ty TNHH Shiro đặt hàng Quý công ty các mặt hàng sau:
+    </p>
+    <table class="product-table" id="product-table">
+
+        <thead>
+            <tr>
+                <th class="text-center"  style="width: 3%;">STT</th>
+                <th class="text-center" style="width: 40%;">Tên sản phẩm </th>
+                <th class="text-center" style="width: 6%;">Số lượng</th>
+                <th class="text-center" style="width: 15%;">Đơn giá <br>(VNĐ)</th>
+                
+                <th class="text-center" style="width: 15%;">Thành tiền <br> (VNĐ)</th>
+                <th class="text-center" style="width: 6%;">Thuế suất</th>
+                <th class="text-center" style="width: 15%;">Tiền thuế</th>
+                
+            </tr>
+        </thead>
+
+        <tbody id="product-tbody">
+            
+        </tbody>
+    </table>
+    <div class="totalOrder">
+        
+    <p contenteditable="false">
+    <b>GHI CHÚ</b>
+    - Bên bán cung cấp hàng hóa theo chất lượng đúng như quy cách đặt hàng.
+    - Phương thức thanh toán : Tiền mặt hoặc chuyển khoản.
+    - Thời gian giao hàng: Giao ngay sau khi đặt hàng.
+    - Nếu có các vấn đề phát sinh hai bên phải có thông báo với nhau ngay sau khi nhận được xác nhận đơn hàng. 
+        Hai bên phối hợp với nhau xử lý các vấn đề phát sinh trong quá trình giao dịch.
+    </p>
+
+    </div>
+    <footer class="footer">
+        <div class="left-footer">
+            <p> Xác nhận của đơn vị mua</p>
+        </div>
+        <div class="right-footer">
+            <p id="label1">Xác nhận của đơn vị bán</p>
+            <p >( Đóng dấu, ký tên đại diện công ty )</p>
+        </div>
+    </footer>
+</div>
+<hr/>
+<div class="container" id="productContent">
+
+<div class="header2">
+    
+    <div class="left-header">
+        <div style="display: flex;">
+            <p style="padding: 0px; margin: 1px;"> <strong>Đơn vị: </strong></p>
+            <p style="padding: 0px; margin: 1px;"><strong>CÔNG TY TNHH TM DV THẠNH MINH</strong></p>
+        </div>
+        <div style="display: flex;">
+            <p style="padding: 0px; margin: 1px;"> <strong>Địa chỉ: </strong></p>
+            <p  id="company-address-short" style="padding: 0px; margin: 1px;"> 113 Dương Quảng Hàm, P.5, Q. Gò Vấp</p>
+        </div>
+        <div style="display: flex;">
+            <p style="padding: 0px; margin: 1px;"> <strong>MST: </strong></p>
+            <p  style="padding: 0px; margin: 1px;">0304519830</p>
+        </div>
+    </div>
+    <div class="right-header">
+        <h1 style="text-align: center; margin-right: 100px;">PHIẾU GIAO HÀNG</h1>
+    </div>
+</div>
+
+<!--
+<div>
+    <p contenteditable="true" id="currentDate"></p>
+</div>
+-->
+<div class="left-header">
+    <div style="display: flex;">
+        <p style="padding: 0px; margin: 1px;"> <strong>Tên khách hàng: </strong></p>
+        <p style="padding: 0px; margin: 1px;"><strong>CÔNG TY TNHH SHIRO</strong></p>
+    </div>
+    <div style="display: flex;">
+        <p style="padding: 0px; margin: 1px;"> <strong>Địa chỉ: </strong></p>
+        <p  style="padding: 0px; margin: 1px;">412 Nguyễn Thị Minh Khai, P.5, Q.3, Tp. Hồ Chí Minh</p>
+    </div>
+    <div style="display: flex;">
+        <p style="padding: 0px; margin: 1px;"> <strong>Liên hệ:</strong></p>
+        <p id="CustomerDetail"  style="padding: 0px; margin: 1px;">Anh Tú - 089.8984.089</p>
+    </div>
+</div>
+
+<table class="product-table"  id="xProduct-table">
+
+    <thead>
+        <tr>
+            <th class="text-center"  style="width: 2%;">STT</th>
+            <th class="text-center" style="width: 33%;">Tên sản phẩm </th>
+            <th class="text-center" style="width: 10%;">Số lượng</th>
+            <th class="text-center" style="width: 15%;">Đơn giá</th>
+            
+            <th class="text-center" style="width: 15%;">Thành tiền</th>
+            <th class="text-center" style="width: 8%;">VAT</th>
+            <th class="text-center" style="width: 15%;">Tiền thuế</th>
+            
+        </tr>
+    </thead>
+
+    <tbody id="xProduct-tbody">
+        
+    </tbody>
+</table>
+
+<p  id="date-bill" style="margin:10px 2px 0px 0px; text-align: right;"></p>
+<footer class="footer">
+    <div class="left-footer">
+        <p style="margin:0px;">NGƯỜI NHẬN</p>
+        <p style="margin-top:5px;">(ký và ghi rõ họ tên)</p>
+    </div>
+    <div class="right-footer">
+        <p  style="margin:0px;">NGƯỜI BÁN HÀNG</p>
+    </div>
+</footer>
+</div>
+

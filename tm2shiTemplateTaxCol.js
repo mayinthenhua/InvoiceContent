@@ -1,6 +1,7 @@
-function render_template1(tables,tbody,tbody1){
+function render_viid2shiTemplateTaxCol(tables,tbody,tbody1){
     var merge_alias = page_tables.merge_alias;
     var merges = page_tables.merges;
+    
     let isTable = false;
     let isTotal = false;
     let rowcnt=0;
@@ -15,8 +16,9 @@ function render_template1(tables,tbody,tbody1){
             td_dom = $('<td></td>');
             if (merges[r_c]) {
                 isTotal = true;
-                if (merges[r_c].width > 1 && merges[r_c].width!=2) {
-                    td_dom.attr('colspan', merges[r_c].width-1);
+                if (merges[r_c].width > 1) {
+                    
+                    td_dom.attr('colspan', merges[r_c].width);
                 }
                 if (merges[r_c].height > 1) {
                     td_dom.attr('rowspan', merges[r_c].height);
@@ -24,7 +26,6 @@ function render_template1(tables,tbody,tbody1){
             }
             
             let cell = tables[r][c];
-            
             if(cell.trim().length===0){
                 
                 if(r<tables[r].length){
@@ -59,12 +60,7 @@ function render_template1(tables,tbody,tbody1){
                     let dateLine = lines[index];
                     let invoiceNoLine = lines[index_Invoice];
                     const n = dateLine.match(/\d+/g);
-                    try {
-                        invoiceNo = invoiceNoLine.match(/\d+/g)[0];
-                    } catch (error) {
-                        invoiceNo = lines[lines.length-1].replace('"','');
-                    }
-                    
+                    invoiceNo = invoiceNoLine.match(/\d+/g)[0];
                     if(n){
                         date.day = n[0];
                         date.month = n[1];
@@ -129,62 +125,38 @@ function render_template1(tables,tbody,tbody1){
                 isTable = true;
                 continue;
             }
-            if(cell.includes('Cộng tiền hàng (Sub total):')){
-            
-            }
             if(isTable===true && c!==2){
                 
                 
                 if (merges[r_c]) {
-                                                        
-                    if (merges[r_c].width ===5) {
-                        if(cell.includes('10%')){
-                            td_dom.text(`Tiền thuế GTGT 10% (VAT amount):`);
-                        }else if(cell.includes('8%')){
-                            td_dom.text(`Tiền thuế GTGT 8% (VAT amount):`);
-                        } else{
-                            td_dom.text(cell);
-                        }
-                        
+                
+                    if (merges[r_c].width ===6) {
+                        td_dom.text(cell);
                         td_dom.addClass('text-right');
                         td_dom.addClass('row-sub');
                     }
                     if (merges[r_c].width ===2) {
-                        const isNumber = !isNaN(tables[r][0]) && !isNaN(parseFloat(tables[r][0]));
-                            if (isNumber) {
-                                let pruductName =  removeLastWord(cell.trim());
-                                td_dom.text(pruductName);
-                                td_dom.addClass('text-left');
-                            }else{
-                                td_dom.html('<strong>'+cell+'</strong>');
-                                td_dom.addClass('text-right');
-                            }
-                        
+                        td_dom.html('<strong>'+cell+'</strong>');
+                        td_dom.addClass('text-right');
                     }
-                    
-                    if (merges[r_c].width ===6) {
+                    if (merges[r_c].width ===8) {
                         let split = cell.split(':');
                         td_dom.html( 'Số tiền viết bằng chữ'+': '+'<strong>'+split[1]+'</strong>');
                         td_dom.addClass('text-left');
-                        
                     }
                 }else{
                     td_dom.text(cell);
-                    
-                    if(c===0 ||c===3){
+                    if(c===0 ||c===3||c===6){
                     td_dom.addClass('text-center');
                     }
-                    else if(c===4 ||c===5){
-                        
+                    else if(c===4 ||c===5||c===7){
                         td_dom.addClass('text-right');
-                        if(tables[r][c-1].trim()===''){
-                            td_dom.html('<strong>'+cell+'</strong>');
-                        }
                     }
                     else{
                         td_dom.addClass('text-left');
                     }
                 }
+                
                 tr_dom.append(td_dom);
             }
             
@@ -201,10 +173,8 @@ function render_template1(tables,tbody,tbody1){
         
     }
     let xProduct = document.getElementById("xProduct-table");
+    //  xProduct.deleteRow(rowcnt-1);
+    //  xProduct.deleteRow(rowcnt-2);
+
     
-}
-function removeLastWord(sentence) {
-    const words = sentence.split(' ');
-    words.pop();
-    return words.join(' ');
 }

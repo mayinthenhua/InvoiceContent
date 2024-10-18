@@ -107,11 +107,13 @@
         }
 
         table {
-            max-width: 100%;
+            width: 100%;
             height: auto; 
             border-collapse: collapse;
         }
-        
+        .product-table {
+            table-layout: fixed; 
+        }
         .product-table th, td {
             border: 1px solid #dddddd;
             padding: 3px 5px;
@@ -175,7 +177,9 @@
             text-align: center;
         }
         
-
+        .table-row-min {
+            height: 20px;
+        }
     </style>
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.js"></script>
@@ -684,9 +688,14 @@
         });
         };
     </script>
-    <script src="template1.js"></script>
-    <script src="template2.js"></script>
-    <script src="template3.js"></script>
+    <script src="viid2shiTemplate.js"></script>
+    <script src="viid2shiTemplateTaxCol.js"></script>
+
+    <script src="tm2viidTemplateTaxCol.js"></script>
+    <script src="tm2viidTemplate.js"></script>
+
+    <script src="tm2shiTemplate.js"></script>
+    <script src="tm2shiTemplateTaxCol.js"></script>
 </head>
 <body>
     <div id="command">
@@ -708,7 +717,121 @@
     </div>
     <label id="filename" style="margin-top: 10px; color: blue;height: 10px; text-align: center;display: flex;justify-content: center;"></label>
     <hr/>
-    <div  id="render-body"></div>
+    <div  id="render-body">
+        <div class="container" id="orderContent">
+            <div class="d-flex" style="margin: 10px;">
+                <button id="viid-shi-btn">VIID->SHI</button>
+            </div>
+            <table class="product-table" id="product-table">
+
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 3%;">STT</th>
+                        <th class="text-center editable" style="width: 40%;">Tên sản phẩm </th>
+                        <th class="text-center editable" style="width: 6%;">Số lượng</th>
+                        <th class="text-center editable" style="width: 15%;">Đơn giá <br>(VNĐ)</th>
+                        
+                        <th class="text-center" style="width: 15%;">Thành tiền <br> (VNĐ)</th>
+                        <!-- <th class="text-center" style="width: 6%;">Thuế suất</th>
+                        <th class="text-center" style="width: 15%;">Tiền thuế</th> -->
+                        
+                    </tr>
+                </thead>
+        
+                <tbody id="orderDetails-tbody">
+                                       
+                    <tr class="order-row table-row-min">
+                        <td class="text-center no"></td>
+                        <td class="text-left name " contenteditable ="true"></td>
+                        <td class="text-center quantity editable" contenteditable ="true"></td>
+                        <td class="text-right price editable" contenteditable ="true"></td>
+                        <td class="text-right amount editable"></td>
+                    </tr>
+                    <tr class="order-row table-row-min">
+                        <td class="text-center no"></td>
+                        <td class="text-left name " contenteditable ="true"></td>
+                        <td class="text-center quantity editable" contenteditable ="true"></td>
+                        <td class="text-right price editable" contenteditable ="true"></td>
+                        <td class="text-right amount editable"></td>
+                    </tr>
+                    <tr class="order-row table-row-min">
+                        <td class="text-center no"></td>
+                        <td class="text-left name " contenteditable ="true"></td>
+                        <td class="text-center quantity editable" contenteditable ="true"></td>
+                        <td class="text-right price editable" contenteditable ="true"></td>
+                        <td class="text-right amount editable"></td>
+                    </tr>
+                    <tr class="order-row table-row-min">
+                        <td class="text-center no"></td>
+                        <td class="text-left name " contenteditable ="true"></td>
+                        <td class="text-center quantity editable" contenteditable ="true"></td>
+                        <td class="text-right price editable" contenteditable ="true"></td>
+                        <td class="text-right amount editable"></td>
+                    </tr>
+                    <tr class="order-row table-row-min">
+                        <td class="text-center no"></td>
+                        <td class="text-left name " contenteditable ="true"></td>
+                        <td class="text-center quantity editable" contenteditable ="true"></td>
+                        <td class="text-right price editable" contenteditable ="true"></td>
+                        <td class="text-right amount editable"></td>
+                    </tr>
+                    <tr class="order-row table-row-min">
+                        <td class="text-center no"></td>
+                        <td class="text-left name " contenteditable ="true"></td>
+                        <td class="text-center quantity editable" contenteditable ="true"></td>
+                        <td class="text-right price editable" contenteditable ="true"></td>
+                        <td class="text-right amount editable"></td>
+                    </tr>
+                    <tr class="order-row table-row-min">
+                        <td class="text-center no"></td>
+                        <td class="text-left name " contenteditable ="true"></td>
+                        <td class="text-center quantity editable" contenteditable ="true"></td>
+                        <td class="text-right price editable" contenteditable ="true"></td>
+                        <td class="text-right amount editable"></td>
+                    </tr>
+                    <tr class="order-row table-row-min">
+                        <td class="text-center no"></td>
+                        <td class="text-left name " contenteditable ="true"></td>
+                        <td class="text-center quantity editable" contenteditable ="true"></td>
+                        <td class="text-right price editable" contenteditable ="true"></td>
+                        <td class="text-right amount editable"></td>
+                    </tr>
+                    <tr class="order-row table-row-min">
+                        <td class="text-center no"></td>
+                        <td class="text-left name " contenteditable ="true"></td>
+                        <td class="text-center quantity editable" contenteditable ="true"></td>
+                        <td class="text-right price editable" contenteditable ="true"></td>
+                        <td class="text-right amount editable"></td>
+                    </tr>
+                    <tr class="order-row table-row-min">
+                        <td class="text-center no"></td>
+                        <td class="text-left name " contenteditable ="true"></td>
+                        <td class="text-center quantity editable" contenteditable ="true"></td>
+                        <td class="text-right price editable" contenteditable ="true"></td>
+                        <td class="text-right amount editable"></td>
+                    </tr>
+                    <tr class="order-row table-row-min">
+                        <td class="text-center no"></td>
+                        <td class="text-left name " contenteditable ="true"></td>
+                        <td class="text-center quantity editable" contenteditable ="true"></td>
+                        <td class="text-right price editable" contenteditable ="true"></td>
+                        <td class="text-right amount editable"></td>
+                    </tr>
+                   
+                            
+                    <tr class="last-row"><td colspan="4" class="text-right row-sub">Cộng tiền hàng (Sub total): </td>
+                        <td class="text-right"  id="sub-total" style="font-weight: bold;"></td></tr>
+                    <tr><td colspan="4" class="text-right row-sub">Tiền thuế GTGT 10% (VAT amount):</td>
+                        <td class="text-right"  id="tax-amount"  style="font-weight: bold;"></td></tr>
+                    <tr><td colspan="4" class="text-right row-sub">Tổng cộng tiền thanh toán (Total payment): </td>
+                        <td class="text-right" id="total-pay"  style="font-weight: bold;"></td></tr>
+                    <tr><td colspan="5" class="text-left">Số tiền viết bằng chữ: 
+                        <strong id="total-char"></strong></td></tr></tbody>
+            </table>
+            
+        </div>
+        
+    </div>
     <script>
         let date={};
         let data;
@@ -771,16 +894,26 @@
                 */
                 let _tables = result.pageTables[0];
                 var template;
-                
+                console.log('_tables.width',_tables.width);
+                console.log('_tables',_tables.tables);
                 if(_tables.width===8){
-                    if(_tables.tables[2][0].includes('THẠNH MINH')){
+                    
+                    if(_tables.tables[2][0].includes('THẠNH MINH')&&_tables.tables[3][0].includes('VIỆT ID')){
                         
-                        template = 'template3.html';
+                        template = 'tm2viidTemplateTaxCol.html';
+                    }else if(_tables.tables[2][0].includes('THẠNH MINH')&&_tables.tables[3][0].includes('SHIRO')){
+                        
+                        template = 'tm2shiTemplateTaxCol.html';
                     }else
-                        template = 'template2.html';
+                        template = 'viid2shiTemplateTaxCol.html';
                 }
                 if(_tables.width===6){
-                    template = 'template1.html';
+                    if(_tables.tables[2][0].includes('THẠNH MINH')&&_tables.tables[3][0].includes('SHIRO')){
+                        template = 'tm2shiTemplate.html';//tm -> shr: không có cột thuế
+                    }else if(_tables.tables[2][0].includes('THẠNH MINH')&&_tables.tables[3][0].includes('VIỆT ID')){
+                        template = 'tm2viidTemplate.html';
+                    }else
+                        template = 'viid2shiTemplate.html';//viid -> shr: không có cột thuế
                 }
                 fetch(template)
                 .then(response => response.text())
@@ -794,14 +927,17 @@
                     while (page_tables = result.pageTables.shift()) {
                         table_dom = $('<table></table>').attr('border', 1);
                         var tables = page_tables.tables;
-                        if(template === 'template3.html'){
-                            render_template3(tables,tbody,tbody1);
+                        if(template === 'tm2shiTemplate.html'){
+                            render_tm2shiTemplate(tables,tbody,tbody1);
                         }
-                        if(template === 'template2.html'){
-                            render_template2(tables,tbody,tbody1);
+                        if(template === 'tm2viidTemplateTaxCol.html'){
+                            render_tm2viidTemplateTaxCol(tables,tbody,tbody1);
                         }
-                        if(template == 'template1.html'){
-                            render_template1(tables,tbody,tbody1);
+                        if(template === 'viid2shiTemplateTaxCol.html'){
+                            render_viid2shiTemplateTaxCol(tables,tbody,tbody1);
+                        }
+                        if(template == 'viid2shiTemplate.html'){
+                            render_viid2shiTemplate(tables,tbody,tbody1);
                         }
                         
                     };
@@ -895,5 +1031,223 @@
         return result;
     }
     </script>
+    <script>
+
+        $(document).on('keypress','#orderDetails-tbody .editable', function(e) {
+           if (e.key !== '.' && (e.key < '0' || e.key > '9')) {
+               e.preventDefault();
+           }
+         });
+         
+       $(document).on('input','#orderDetails-tbody .editable', function(e) {
+           // Lấy giá trị số hiện tại (bỏ dấu phẩy)
+           let text = $(this).text().replace(/[, %]/g, '');
+     
+           // Kiểm tra nếu là số hợp lệ
+           if (!isNaN(text) && text !== "") {
+               // Định dạng lại giá trị với dấu phân cách
+               // $(this).text( formatNumber(text));
+           } else {
+             $(this).text(text);
+           }
+       });
+     
+         // ====focus class .editable handler==========
+         $(document).on('focus','#orderDetails-tbody .editable', function(e) {
+             let text = $(this).text().replace(/[, %]/g, '');
+             $(this).text(text);
+           //  e.target.select();
+         });
+         
+         // ====blur class .editable handler==========
+         $(document).on('blur','#orderDetails-tbody .editable', function(e) {
+           
+           let value = $(this).text().replace(/[, %]/g, ''); // Lấy nội dung của <td> và xóa dấu phẩy
+             if (!isNaN(value) && value !== "") {
+             $(this).text(formatNumber(value)); // Định dạng và đặt lại nội dung
+           }
+           let row = $(this).closest('tr');
+           let quantity = parseNumber(row.find('.quantity').text()) || 0;
+           let price = parseNumber(row.find('.price').text()) || 0;
+     
+           let amount = quantity * price;
+           let taxAmount = Math.round(amount*10/100);
+           row.find('.amount').text(amount.toLocaleString('en'));
+           row.find('.taxAmount').text(taxAmount.toLocaleString('en'));
+           calculateTotal();
+         });
+       //---click row handler=================
+         $(document).on('click','#orderDetails-tbody .order-row', function() {
+             rowSelected = $(this); 
+             $('#orderDetails-tbody .order-row').removeClass('active');
+             $(this).addClass('active');
+               // Lấy vị trí của dòng vừa click
+             var rowPosition = $(this).offset();
+             var rowWidth = $(this).width();
+     
+             // Hiển thị popup ở cuối dòng (bên phải)
+             $('#orderItem-popup').css({
+                 top: rowPosition.top + 'px',
+                 left: (rowPosition.left + rowWidth) + 'px' // Vị trí cuối dòng
+             }).show();
+         });
+           $(document).on('click', function(event) {
+             if (!$(event.target).closest('.order-row, #orderItem-popup').length) {
+                 $('#orderDetails-tbody tr').removeClass('active');
+                 $('#orderItem-popup').hide();
+             }
+           });
+           $(document).on('click','#viid-shi-btn',function(){
+            let table = $('#product-table');
+            $(table).find('tr').each(function(index) {
+                if ($(this).text().trim() === "") {
+                    $(this).remove();
+                }
+            });
+                fetchTemplate('viid2shiTemplate.html',table);
+           });
+         //=======================================
+        
+        function calculateTotal(){
+            try{
+            let total=0;
+            let taxAmount=0;
+            $('#orderDetails-tbody .order-row').each(function(index) {
+                if ($(this).text().trim() === "") {
+                    return true;
+                }
+                $(this).find('.no').text(index+1);
+                let quantity = parseNumber( $(this).find('.quantity').text().trim());
+                let price = parseNumber($(this).find('.price').text().trim());
+                //set data-row
+
+                if (!isNaN(quantity)&&!isNaN(price)) {
+                let value = quantity * price;
+                //let taxValue = Math.round(value*10/100);
+                total += value;
+                
+                $(this).find('.amount').text(formatNumber(value));
+                
+                }
+            });
+            taxAmount = Math.round(total *10/100);
+            $('#sub-total').text(formatNumber(total));
+            $('#tax-amount').text(formatNumber(taxAmount));
+            $('#total-pay').text(formatNumber(taxAmount + total));
+            $('#total-char').text(tienBangChu(taxAmount + total));
+            }catch(err){
+            console.log(err);
+            }
+        }
+
+        function formatNumber(number) {
+        try {
+          return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        } catch (error) {
+          alert(error);
+        }
+
+      }
+      function parseNumber(input){
+        if(typeof input === 'string'  && input !== null){
+          return parseFloat(input.trim().replace(/[, % #]/g, ''))
+        }else{
+          return input;
+        }
+        
+      }
+      function docSo3ChuSo(so) {
+        let ChuSo = ["không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"];
+        let tram, chuc, donvi;
+        let KetQua = "";
+        tram = Math.floor(so / 100); // Lấy chữ số hàng trăm
+        chuc = Math.floor((so % 100) / 10); // Lấy chữ số hàng chục
+        donvi = so % 10; // Lấy chữ số hàng đơn vị
+        if (tram !== 0) {
+            KetQua += ChuSo[tram] + " trăm ";
+            if ((chuc === 0) && (donvi !== 0)) KetQua += "lẻ ";
+        }
+        if ((chuc !== 0) && (chuc !== 1)) {
+            KetQua += ChuSo[chuc] + " mươi";
+            if ((chuc === 0) && (donvi !== 0)) KetQua += " lẻ ";
+        }
+        if (chuc === 1) KetQua += " mười";
+        switch (donvi) {
+            case 1:
+                if ((chuc !== 0) && (chuc !== 1)) {
+                    KetQua += " mốt ";
+                } else {
+                    KetQua += " một ";
+                }
+                break;
+            case 5:
+                if (chuc === 0) {
+                    KetQua += " năm ";
+                } else {
+                    KetQua += " lăm ";
+                }
+                break;
+            default:
+                if (donvi !== 0) {
+                    KetQua += " " + ChuSo[donvi];
+                }
+                break;
+        }
+        return KetQua;
+    }
+
+    function tienBangChu(soTien) {
+        if (soTien === 0) return "Không đồng";
+        let donviTien = ["", "nghìn", "triệu", "tỷ", "nghìn tỷ", "triệu tỷ"];
+        let so = Math.abs(soTien);
+        let i = 0;
+        let KetQua = "";
+        while (so > 0) {
+            let so3ChuSo = so % 1000;
+            if (so3ChuSo !== 0) {
+                let ChuSo = docSo3ChuSo(so3ChuSo);
+                KetQua = ChuSo + " " + donviTien[i] + " " + KetQua;
+            }
+            so = Math.floor(so / 1000);
+            i++;
+        }
+        return KetQua.trim() + " đồng ./.";
+    }
+    function fetchTemplate(template, table) {
+    fetch(template)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            $('#render-body').html(data);
+            if (!table || $(table).length === 0) {
+                console.error('Table is not valid or not found.');
+                return;
+            }
+            $('#product-table').empty();
+            $('#xProduct-table').empty();
+
+            // Tạo order ID ngẫu nhiên
+            orderId = randomOrderId();
+            let clonedTable = $(table).clone(true); 
+            $('#product-table').append(clonedTable); 
+            $('#xProduct-table').append(clonedTable.clone(true));
+            $('#CustomerName').text('CÔNG TY TNHH SHIRO');
+            $('#CustomerAddress').text('412 Nguyễn Thị Minh Khai, P.5, Q.3, Tp.Hồ Chí Minh');
+            
+            let currentDate = new Date();
+            let day = currentDate.getDate();
+            let month = currentDate.getMonth() + 1;
+            let year = currentDate.getFullYear();
+            $('#date-bill').text(`Ngày  ${day} tháng ${month} năm ${year}`);
+        })
+        .catch(error => {
+            console.error('Error loading body.html:', error);
+        });
+    }
+</script>
 </body>
 </html>

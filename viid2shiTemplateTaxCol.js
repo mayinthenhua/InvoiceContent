@@ -1,5 +1,4 @@
-function render_template3(tables,tbody,tbody1){
-
+function render_viid2shiTemplateTaxCol(tables,tbody,tbody1){
     var merge_alias = page_tables.merge_alias;
     var merges = page_tables.merges;
     
